@@ -1,0 +1,6 @@
+step 1: react project installed
+step 2: eslint install korbo  ar por amader kisu problem fix korar jonno a code ta script a add korbo  "lint": "eslint --fix --ext .js,.jsx ."  and run korbo npm run lint command use kore
+step 4: install prettierr and create .prettierrc file
+step 5: .prettierignore  file create kore ignore ja ja korbo ta ta add korbo Ignoring Code a click kore sobar nice prettier --write . '!**/*.{js,jsx,vue}' a command ta pabo command ta te kisu change  korbo npx prettier --write . '!**/*.{json}'  ata run korbo
+step 5: overweite => prettierr theke Integrating with Linters a click kore  eslint-config-prettier a click kore npm install --save-dev eslint-config-prettier a command ta pabo and install korbo ar por eslint ar "extends": [ "prettier" ] ar sobar nice prettier add kore dibo
+step 6: code ar formate thik korte => npm run lint  a command use korbo
