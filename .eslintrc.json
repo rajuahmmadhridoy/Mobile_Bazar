@@ -26,6 +26,6 @@
         "react/prop-types": 0,
         "jsx-a11y/click-events-have-key-events": 0,
         "prefer-const": "error",
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off"        
     }
 }
