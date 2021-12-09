@@ -8,11 +8,11 @@
 
 {
     // config related to code formatting
-    "editor.fontSize": 16,
+    "editor.fontSize": 17,
     "editor.fontFamily": "OperatorMonoLig-Book",
     "editor.hover.enabled": true,
     "terminal.integrated.fontFamily": "OperatorMonoLig-Book, Hack Nerd Font, Meslo LG L DZ for Powerline",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.letterSpacing": -5,
-    "window.zoomLevel": 2
+    "window.zoomLevel": 1
 }

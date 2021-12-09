@@ -1,53 +1,25 @@
 .header_component {
-    .log a {
-        color: orange;
-        font-size: 20px;
-        font-weight: 800;
-        padding-right: 25px;
+    .top_header {
+        svg {
+            color: red;
+        }
+        background: $white;
     }
-    .signup p {
-        color: gray;
-        font-weight: 500;
-        font-size: 15px;
-        padding-top: 15px;
-        span {
-            &:first-child {
-                padding-left: 8px;
-                padding-right: 8px;
-                font-size: 17px;
+    // middle_header
+    .middle_header {
+        .logo {
+            width: 100%;
+            max-width: 120px;
+        }
+        .icon-list {
+            li {
+                width: 35px;
+                height: 35px;
+                box-shadow: 0.5px 2px 5px #808080de;
+                text-align: center;
+                line-height: 35px;
+                border-radius: 50px;
             }
-        }
-    }
-    .subscrive {
-        position: relative;
-        .icon1 {
-            position: absolute;
-            left: 10px;
-            color: gray;
-            width: 40px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        .icon2 {
-            position: absolute;
-            right: 0;
-            border-radius: 50px;
-            width: 50px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to right, red, orange);
-            color: #fff;
-            font-size: 20px;
-        }
-        input {
-            height: 43px;
-            width: 320px;
-            padding: 5px 30px 5px 35px;
-            border-radius: 50px;
-            border: 1px solid gray;
         }
     }
 }
