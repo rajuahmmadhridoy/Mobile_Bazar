@@ -1,12 +1,16 @@
 import Product from 'components/common/Product';
 import { Container, Row } from 'react-bootstrap';
-
-const Products = ({ data }) => {
+import SkeletonMeterialUi from 'skeletons/skeletonMeterialUi';
+const Products = ({ data, isLoading }) => {
     return (
         <Container>
             <Row>
                 <h2>product title</h2>
-                {/* {product?.map((pd) =>(<Product pd={pd} key={pd._id}/>))} */}
+                {isLoading && (
+                    <Row>
+                        <SkeletonMeterialUi loading={isLoading} />
+                    </Row>
+                )}
                 {data?.map((product) => (
                     <Product key={product._id} product={product} />
                 ))}

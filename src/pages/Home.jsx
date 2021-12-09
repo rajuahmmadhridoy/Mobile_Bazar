@@ -10,11 +10,11 @@ const Home = () => {
     //         ProductService.getProducts()
     //         .then(response => setData(response))
     //     },[])
-    const { data } = useAsync(ProductService.getProducts);
+    const { data, isLoading } = useAsync(ProductService.getProducts);
     return (
         <div>
             <Banner></Banner>
-            <Products data={data}></Products>
+            <Products isLoading={isLoading} data={data}></Products>
         </div>
     );
 };
