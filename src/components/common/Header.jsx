@@ -8,7 +8,7 @@ import logo from 'assets/images/fvaly.png';
 const Header = () => {
     return (
         <div className="header_component">
-            <div className="top_header">
+            <div className="top_header mt-2">
                 <Container className="d-flex justify-content-between">
                     <ul className="list-unstyled d-flex gap-3">
                         <li>
@@ -32,7 +32,7 @@ const Header = () => {
             </div>
             {/* end_to_header */}
             {/* start_middle-hheader */}
-            <div className="middle_header">
+            <div className="middle_header mt-2">
                 <Container>
                     <div className="d-flex align-items-center ">
                         <img className="logo" src={logo} alt="" />
@@ -63,16 +63,18 @@ const Header = () => {
                 </Container>
             </div>
             {/* end_middle-hheader */}
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Categories</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">News feed</Nav.Link>
-                        <Nav.Link href="#features">Merchant Zone</Nav.Link>
-                        <Nav.Link href="#pricing">Help</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
+            <div className="bottom-header mt-2">
+                <Navbar bg="dark" variant="dark">
+                    <Container>
+                        <Navbar.Brand href="#home">Categories</Navbar.Brand>
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">News feed</Nav.Link>
+                            <Nav.Link href="#features">Merchant Zone</Nav.Link>
+                            <Nav.Link href="#pricing">Help</Nav.Link>
+                        </Nav>
+                    </Container>
+                </Navbar>
+            </div>
         </div>
     );
 };

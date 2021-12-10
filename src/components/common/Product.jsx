@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import imgUrlParser from 'utils/imgUrlParser';
 
 const Product = ({ product }) => {
     // const url = process.env.REACT_APP_IMAGE_BASE_URL
-    const { image } = product;
+    const { image, _id } = product;
     return (
         <Col md={3}>
             <Card>
@@ -14,6 +15,10 @@ const Product = ({ product }) => {
                 />
                 <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
+                    <Link to={`/product/${_id}`}>
+                        {' '}
+                        <button className="bg-primary text-white border w-100 rounded">add</button>
+                    </Link>
                 </Card.Body>
             </Card>
         </Col>

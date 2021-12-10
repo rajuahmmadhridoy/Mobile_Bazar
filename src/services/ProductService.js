@@ -5,6 +5,7 @@ class ProductService {
     }
 
     getProductById(id) {
+        console.log(id, 123);
         return request.get(`/product/${id}`);
     }
 
