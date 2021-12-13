@@ -19,8 +19,11 @@ const Banner = () => {
                             </ListGroup>
                         </Card>
                     </Col>
-                    <Col lg={9}>
+                    <Col lg={9} className="mt-3">
                         <Carousel>
+                            <Carousel.Item>
+                                <img className="d-block w-100" src={one} alt="Third slide" />
+                            </Carousel.Item>
                             <Carousel.Item>
                                 <img className="d-block w-100" src={one} alt="Third slide" />
                             </Carousel.Item>

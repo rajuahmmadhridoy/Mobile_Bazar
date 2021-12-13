@@ -1,11 +1,12 @@
 import useAsync from 'hooks/useAsync';
 import { React, useCallback } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { addToCart, decrementToCart, incrementToCart } from 'redux/actions/cartActions';
 import ProductService from 'services/ProductService';
 import SkeletonMeterialUiDetailPage from 'skeletons/skeletonMeterialUiDetailPage';
 import imgUrlParser from 'utils/imgUrlParser';
-
 const ProductDetails = () => {
     const { id } = useParams();
     // const {  data, isLoading,isSuccess} = useAsync(() => ProductService.getProductById(id));
@@ -16,7 +17,8 @@ const ProductDetails = () => {
     }, [id]);
     const { data, isLoading, isSuccess } = useAsync(getProduct);
     // const {name} = data;
-    console.log(data?.name, 11122233);
+    const dispatch = useDispatch();
+    const cartData = useSelector((state) => state.cartReducers);
     return (
         <div className="product_details-Component">
             <Container>
@@ -32,11 +34,29 @@ const ProductDetails = () => {
                                 />
                             </Col>
                             <Col md={6}>
-                                <h5 className="pt-5">Name:{data.name}</h5>
-                                <h5 className="pt-5">Price:{data.price}</h5>
-                                <button className="bg-primary text-white border mt-5">
-                                    Add To Card
-                                </button>
+                                <h5 className="pt-3">Name:{data.name}</h5>
+                                <h5 className="pt-3">Price:{data.price}</h5>
+                                {cartData.length ? (
+                                    <>
+                                        <button onClick={() => dispatch(incrementToCart(1))}>
+                                            +
+                                        </button>
+                                        <button onClick={() => dispatch(decrementToCart(1))}>
+                                            -
+                                        </button>
+                                    </>
+                                ) : (
+                                    <button
+                                        onClick={() => dispatch(addToCart(data))}
+                                        className="bg-primary text-white border mt-3 mb-3"
+                                    >
+                                        Add To Card
+                                    </button>
+                                )}
+                                <p>
+                                    {data.name}Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.{' '}
+                                </p>
                             </Col>
                         </Row>
                     </div>

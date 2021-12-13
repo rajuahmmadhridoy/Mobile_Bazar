@@ -4,10 +4,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './scss/main.scss';
+import { store } from 'redux/store';
+import { Provider } from 'react-redux';
+import { ActionType } from 'redux/actionType';
+// eslint-disable-next-line no-undef
+let addToCart = localStorage.getItem('addToCart');
+addToCart = JSON.parse(addToCart);
+if (addToCart) {
+    store.dispatch({
+        type: ActionType.ADD_TO_CART,
+        payload: addToCart,
+    });
+}
 ReactDOM.render(
-    <React.StrictMode>
+    <Provider store={store}>
         <App />
-    </React.StrictMode>,
+    </Provider>,
     document.getElementById('root')
 );
 
