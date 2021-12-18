@@ -4,4 +4,6 @@ export const ActionType = {
     DECREMENT_TO_CART: 'decrement_to_cart',
     REMOVE_TO_CART: 'remove_to_cart',
     CLEAR_TO_CART: 'clear_to_cart',
+    LOGIN: 'login',
+    LOGOUT: 'logout',
 };

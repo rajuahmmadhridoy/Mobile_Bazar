@@ -1,0 +1,10 @@
+.product_component {
+    .card{
+        &:nth-of-type(odd) {
+        }
+        &:nth-child(5){
+            background-color: blue;
+        }
+        height: 440px;
+    }
+}

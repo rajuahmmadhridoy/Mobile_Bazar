@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Navbar, Container, Nav, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { AiOutlinePhone, AiTwotoneMail, AiOutlineSearch } from 'react-icons/ai';
 import { BsPhone } from 'react-icons/bs';
@@ -9,18 +9,18 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 const Header = () => {
     const data = useSelector((state) => state.cart);
-    const [active, setActive] = useState(false);
-    const activeNav = () => {
-        if (window.scrollY >= 80) {
-            setActive(true);
-        } else {
-            setActive(false);
-        }
-    };
-    document.addEventListener('scroll', activeNav);
+    // const [active, setActive] = useState(false);
+    // const activeNav = () => {
+    //     if (window.scrollY >= 80) {
+    //         setActive(true);
+    //     } else {
+    //         setActive(false);
+    //     }
+    // };
+    // document.addEventListener('scroll', activeNav);
     return (
         <div className="header_component">
-            <div className={active ? 'NavActive' : 'headerNav'}>
+            <div className={'headerNav'}>
                 <div className="top_header h-25  py-2">
                     <Container className="d-flex justify-content-between">
                         <ul className="list-unstyled d-flex gap-3">
@@ -50,7 +50,10 @@ const Header = () => {
                 <div className="middle_header mt-2">
                     <Container>
                         <div className="d-flex align-items-center ">
-                            <img className="logo" src={logo} alt="" />
+                            <Link to="/home">
+                                {' '}
+                                <img className="logo" src={logo} alt="" />
+                            </Link>
                             <InputGroup className="ms-3">
                                 <FormControl
                                     className="border border-primary"
@@ -74,7 +77,10 @@ const Header = () => {
                                     </span>
                                 </Link>
                                 <li>
-                                    <BiUser />
+                                    <Link to="/login">
+                                        {' '}
+                                        <BiUser />
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

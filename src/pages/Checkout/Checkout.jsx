@@ -8,7 +8,7 @@ const Checkout = () => {
     useEffect(() => {
         setTimeout(() => {
             const productArray = [];
-            for (const pd in cartData.items) {
+            for (const pd in cartData?.items) {
                 productArray.push(cartData.items[pd]);
             }
             setProduct(productArray);

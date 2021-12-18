@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { ActionType } from 'redux/actionType';
 const initailState = {
     cart: null,
@@ -33,7 +34,6 @@ const cartReducers = (state = initailState, action) => {
             }
 
             // localStorage.setItem('addTocat',JSON.stringify(cart))
-            // eslint-disable-next-line no-undef
             localStorage.setItem('addToCart', JSON.stringify(cart));
 
             // eslint-disable-next-line no-return-assign
@@ -41,17 +41,25 @@ const cartReducers = (state = initailState, action) => {
         }
 
         case ActionType.INCREMENT_TO_CART: {
+            const { pd, type } = action.payload;
             const cart = state.cart;
-            const product = action.payload;
-            for (let pdQty = 0; pdQty < cart.items.length; pdQty++) {
-                const element = cart.items[pdQty];
-                console.log(element, 'element');
+            const price = pd.item.price;
+            console.log(cart, 'cart');
+            if (type === 'plus') {
+                cart.items[pd.item._id].qty = cart.items[pd.item._id].qty + 1;
+                cart.totalQty = cart.totalQty + 1;
+                cart.totalPrice = price + Number(cart.totalPrice);
+            } else {
+                if (pd.qty < 1) {
+                    delete cart.items[pd.item._id];
+                } else {
+                    console.log('minus');
+                    cart.items[pd.item._id].qty = cart.items[pd.item._id].qty - 1;
+                    cart.totalQty = cart.totalQty - 1;
+                    cart.totalPrice = cart.totalPrice - price;
+                }
             }
-            if (cart.items[product._id]) {
-                cart.items[product._id].qty = cart.items[product._id].qty + action.payload;
-                cart.totalQty = cart.totalQty + action.payload;
-            }
-            console.log(cart, 'object');
+            localStorage.setItem('addToCart', JSON.stringify(cart));
             return { cart: cart };
         }
 

@@ -34,38 +34,38 @@
     }
 
     // active nab
-    .NavActive {
-        height: 140px;
-        transition: 1s;
-        z-index: 999;
-        background: #fff;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+    // .NavActive {
+    //     height: 140px;
+    //     transition: 1s;
+    //     z-index: 999;
+    //     background: #fff;
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
 
-        .top_header {
-            svg {
-                color: red;
-            }
-            background: $white;
-        }
-        // middle_header
-        .middle_header {
-            .logo {
-                width: 100%;
-                max-width: 120px;
-            }
-            .icon-list {
-                li {
-                    width: 35px;
-                    height: 35px;
-                    box-shadow: 0.5px 2px 5px #808080de;
-                    text-align: center;
-                    line-height: 35px;
-                    border-radius: 50px;
-                }
-            }
-        }
-    }
+    //     .top_header {
+    //         svg {
+    //             color: red;
+    //         }
+    //         background: $white;
+    //     }
+    //     // middle_header
+    //     .middle_header {
+    //         .logo {
+    //             width: 100%;
+    //             max-width: 120px;
+    //         }
+    //         .icon-list {
+    //             li {
+    //                 width: 35px;
+    //                 height: 35px;
+    //                 box-shadow: 0.5px 2px 5px #808080de;
+    //                 text-align: center;
+    //                 line-height: 35px;
+    //                 border-radius: 50px;
+    //             }
+    //         }
+    //     }
+    // }
 }
