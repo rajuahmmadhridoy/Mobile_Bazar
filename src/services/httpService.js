@@ -1,9 +1,9 @@
 import axios from 'axios';
-// const api = 'https://fvaly.herokuapp.com/api';
-const api2 = process.env.REACT_APP_API_BASE_URL;
+// const api = '';
+// const api2 = process.env.REACT_APP_API_BASE_URL;
 const instance = axios.create({
-    baseURL: api2,
-    // timeout: 1000
+    baseURL: "https://fvaly.herokuapp.com/api",
+    timeout: 15000
 });
 
 const responseBody = (respons) => respons.data.data;
@@ -34,7 +34,7 @@ const responseBody = (respons) => respons.data.data;
 
 const request = {
     get: (url) => instance.get(url).then(responseBody),
-    post: (url, body) => instance.post(url).then(responseBody),
+    post: (url, body) => instance.post(url, body).then(responseBody),
     patch: (url, body) => instance.patch(url).then(responseBody),
     delete: (url) => instance.delete(url).then(responseBody),
 };

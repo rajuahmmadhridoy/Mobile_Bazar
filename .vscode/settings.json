@@ -5,12 +5,11 @@
  * Date: 12/04/2021
  *
  */
-
 {
     // config related to code formatting
     "editor.fontSize": 17,
     // "editor.fontFamily": "OperatorMonoLig-Book",
     "editor.hover.enabled": true,
     // "terminal.integrated.fontFamily": "OperatorMonoLig-Book, Hack Nerd Font, Meslo LG L DZ for Powerline",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 0
 }
