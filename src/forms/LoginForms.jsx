@@ -4,20 +4,34 @@ import { useDispatch } from 'react-redux';
 import { login } from 'redux/actions/authAction';
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
     const [data, setData] = useState({
         email: '',
         password: '',
     });
     const handleOnChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+        const {name, value } = e.target;
+        
+        setData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+        
     };
-    const dispatch = useDispatch();
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const loginAction = login(data);
+        dispatch(loginAction);
+    }
+ 
+
     return (
         <div className="login_form mt-5">
             <Container>
                 <Row>
                     <Col md={{ span: 4, offset: 4 }} className="bg-white rounded shadow p-5">
-                        <Form>
+                        <Form onSubmit={submitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
@@ -43,7 +57,7 @@ const LoginForm = () => {
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />
                             </Form.Group>
-                            <Button onClick={() => dispatch(login(data))} variant="primary">
+                            <Button type="submit" variant="primary">
                                 Submit
                             </Button>
                         </Form>

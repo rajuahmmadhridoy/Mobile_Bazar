@@ -1,8 +1,9 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import cartReducers from './reducers/cartReducers';
 import thunk from 'redux-thunk';
 import authReducer from './reducers/authReducer';
+import cartReducers from './reducers/cartReducers';
+
 const combineReducer = combineReducers({
     cartReducers,
     authReducer,
