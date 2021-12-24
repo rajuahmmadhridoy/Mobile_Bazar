@@ -1,32 +1,53 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { incrementToCart } from 'redux/actions/cartActions';
-
+import { removeToCart, updateQuantity } from 'redux/actions/cartActions';
+import imgUrlParser from 'utils/imgUrlParser';
+import { BiPlusMedical } from 'react-icons/bi';
+import { FaMinus } from 'react-icons/fa';
+import { ImCross } from 'react-icons/im';
 const Cartitems = ({ pd, totalPrice }) => {
-    console.log(pd.qty, totalPrice, pd.item._id, pd, 'pd');
+    // console.log(pd, totalPrice, 'pddd');
     const dispatch = useDispatch();
     return (
-        <div>
+        <div className="cart_items_components">
             <Container>
                 <div className="bg-white d-flex">
-                    {totalPrice === null ? (
-                        <></>
+                    {pd?.qty === 0 ? (
+                        <h1>There have not product</h1>
                     ) : (
                         <>
-                            <button
-                                className="border bg-primary text-white px-5"
-                                onClick={() => dispatch(incrementToCart({ pd: pd, type: 'plus' }))}
-                            >
-                                +
-                            </button>
-                            <h1>Price:{totalPrice} Quantity:</h1>{' '}
-                            <button
-                                onClick={() => dispatch(incrementToCart({ pd: pd, type: 'minus' }))}
-                                className="border bg-primary text-white px-5"
-                            >
-                                -
-                            </button>
+                            <div className="cart_items">
+                                <img
+                                    style={{ height: '80px', width: '80px' }}
+                                    src={imgUrlParser(pd?.item.image)}
+                                    alt=""
+                                />
+                                <h4>Price: {pd?.singleTotal}</h4>
+                                <h4>Quantity: {pd?.qty}</h4>
+                                <button
+                                    onClick={() =>
+                                        dispatch(updateQuantity({ pd: pd, type: 'minus' }))
+                                    }
+                                    className="border bg-primary text-white px-2"
+                                >
+                                    <FaMinus />
+                                </button>
+                                <button
+                                    className="border bg-primary text-white px-2"
+                                    onClick={() =>
+                                        dispatch(updateQuantity({ pd: pd, type: 'plus' }))
+                                    }
+                                >
+                                    <BiPlusMedical />
+                                </button>
+                                <button
+                                    className="border bg-primary text-white px-2"
+                                    onClick={() => dispatch(removeToCart({ pd: pd }))}
+                                >
+                                    <ImCross />
+                                </button>
+                            </div>
                         </>
                     )}
                 </div>

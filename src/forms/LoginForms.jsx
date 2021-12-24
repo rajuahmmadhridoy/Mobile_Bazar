@@ -1,35 +1,47 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { Button, Col, Container, Form, Row, Alert } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
 import { login } from 'redux/actions/authAction';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const [data, setData] = useState({
+    const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
     const handleOnChange = (e) => {
-        const {name, value } = e.target;
-        
-        setData((prev) => ({
+        // setFormData({...formData,[e.target.name]:e.target.value})
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
-        
     };
 
     const submitHandler = (event) => {
         event.preventDefault();
-        const loginAction = login(data);
+        const loginAction = login(formData);
         dispatch(loginAction);
+    };
+
+    const { data, status, error } = useSelector((state) => state.authReducer);
+
+    const navigate = useNavigate();
+    if (data) {
+        navigate('/home');
     }
- 
 
     return (
         <div className="login_form mt-5">
             <Container>
                 <Row>
+                    {status === 'error' && (
+                        <Col md={{ span: 4, offset: 4 }}>
+                            <Alert variant="primary">{error}</Alert>
+                        </Col>
+                    )}
                     <Col md={{ span: 4, offset: 4 }} className="bg-white rounded shadow p-5">
                         <Form onSubmit={submitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -57,7 +69,7 @@ const LoginForm = () => {
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />
                             </Form.Group>
-                            <Button type="submit" variant="primary">
+                            <Button disabled={status === 'pending'} type="submit" variant="primary">
                                 Submit
                             </Button>
                         </Form>

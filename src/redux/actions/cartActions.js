@@ -7,16 +7,9 @@ export const addToCart = (payload) => {
     };
 };
 
-export const incrementToCart = (payload) => {
+export const updateQuantity = (payload) => {
     return {
-        type: ActionType.INCREMENT_TO_CART,
-        payload,
-    };
-};
-
-export const decrementToCart = (payload) => {
-    return {
-        type: ActionType.DECREMENT_TO_CART,
+        type: ActionType.UPDATE_QUANTITY,
         payload,
     };
 };

@@ -5,8 +5,10 @@ import { BsPhone } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
 import { FiShoppingBag } from 'react-icons/fi';
 import logo from 'assets/images/fvaly.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { logOut } from 'redux/actions/authAction';
 const Header = () => {
     const data = useSelector((state) => state.cart);
     // const [active, setActive] = useState(false);
@@ -18,6 +20,9 @@ const Header = () => {
     //     }
     // };
     // document.addEventListener('scroll', activeNav);
+    const { status } = useSelector((state) => state.authReducer);
+    const dispatch = useDispatch();
+
     return (
         <div className="header_component">
             <div className={'headerNav'}>
@@ -76,12 +81,18 @@ const Header = () => {
                                         {data?.totalQty}
                                     </span>
                                 </Link>
-                                <li>
-                                    <Link to="/login">
-                                        {' '}
-                                        <BiUser />
-                                    </Link>
-                                </li>
+                                {status === 'success' ? (
+                                    <li className="btn" onClick={() => dispatch(logOut())}>
+                                        <FaSignOutAlt />
+                                    </li>
+                                ) : (
+                                    <li>
+                                        <Link to="/login">
+                                            {' '}
+                                            <BiUser />
+                                        </Link>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </Container>

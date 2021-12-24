@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 const Checkout = () => {
     const [product, setProduct] = useState([]);
     const cartData = useSelector((state) => state.cartReducers.cart);
+    // console.log(cartData,'cartData')
     useEffect(() => {
         setTimeout(() => {
             const productArray = [];
@@ -13,11 +14,11 @@ const Checkout = () => {
             }
             setProduct(productArray);
         }, 500);
-    }, []);
+    }, [product]);
     return (
         <div>
             {product?.map((pd) => (
-                <Cartitems totalPrice={cartData.totalPrice} pd={pd} key={pd._id}></Cartitems>
+                <Cartitems pd={pd} key={pd._id} totalPrice={cartData.totalPrice}></Cartitems>
             ))}
         </div>
     );

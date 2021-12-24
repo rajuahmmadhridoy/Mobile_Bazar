@@ -11,5 +11,5 @@
     // "editor.fontFamily": "OperatorMonoLig-Book",
     "editor.hover.enabled": true,
     // "terminal.integrated.fontFamily": "OperatorMonoLig-Book, Hack Nerd Font, Meslo LG L DZ for Powerline",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 1
 }

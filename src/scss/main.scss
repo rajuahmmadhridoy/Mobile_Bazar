@@ -2,5 +2,6 @@
 @import './overrides/bootstrap.scss';
 @import './global/_global.scss';
 @import './global/_reset.scss';
-@import './components/common/header.scss';
-@import'./components/common/product.scss'
+@import './components/common/_header.scss';
+@import'./components/common/_product.scss';
+@import'./components/checkout/_checkout.scss'

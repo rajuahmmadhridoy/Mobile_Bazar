@@ -1,0 +1,10 @@
+.cart_items_components {
+    .cart_items {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        h4 {
+            width: 180px;
+        }
+    }
+}

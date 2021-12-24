@@ -14,3 +14,10 @@ step 8 : replace lint-staged => default code =>"lint-staged": {
         "*{.js,.jsx}":"npx eslint --fix --ext .js,.jsx .",
         "*.{js,jsx,css,md}": "npx prettier --write"
     }
+
+
+ #######################
+    list of all uses
+ #######################
+ react router dom v6
+ redux,redux-thunk,redux-persist

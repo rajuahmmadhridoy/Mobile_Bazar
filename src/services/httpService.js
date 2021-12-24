@@ -2,8 +2,20 @@ import axios from 'axios';
 // const api = '';
 // const api2 = process.env.REACT_APP_API_BASE_URL;
 const instance = axios.create({
-    baseURL: "https://fvaly.herokuapp.com/api",
-    timeout: 15000
+    baseURL: 'https://fvaly.herokuapp.com/api',
+    timeout: 15000,
+});
+
+instance.interceptors.request.use(function (config) {
+    console.log('do something');
+    return {
+        ...config,
+        headers: {
+            Authorization: JSON.parse(
+                JSON.parse(localStorage.getItem('persist:root') || '').authReducer
+            )?.data?.token,
+        },
+    };
 });
 
 const responseBody = (respons) => respons.data.data;
